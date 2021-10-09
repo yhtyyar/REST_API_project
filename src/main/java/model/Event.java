@@ -26,8 +26,6 @@ public class Event {
     private File file;
 
 
-
-
     public Event() {
     }
 
@@ -38,6 +36,7 @@ public class Event {
         this.eventName = eventName;
         this.file = file;
     }
+
 
     public Long getId() {
         return id;

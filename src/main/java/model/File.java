@@ -75,8 +75,8 @@ public class File {
         return "File{" +
                 "id=" + id +
                 ", event=" + event + '\'' +
-                ", filePath='" + filePath + '\'' +
                 ", fileName='" + fileName +
+                ", filePath='" + filePath + '\'' +
                 '}';
     }
 }
