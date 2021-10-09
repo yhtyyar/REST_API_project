@@ -3,235 +3,36 @@
 <web-app>
     <display-name>REST API project</display-name>
 
-
-    <!--              First Page              -->
     <servlet-mapping>
-        <servlet-name>FirstPageServlet</servlet-name>
-        <url-pattern>/FirstPageServlet</url-pattern>
+        <servlet-name>EventServlet</servlet-name>
+        <url-pattern>/EventServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>FirstPageServlet</servlet-name>
-        <servlet-class>servlets.FirstPageServlet</servlet-class>
+        <servlet-name>EventServlet</servlet-name>
+        <servlet-class>servlets.EventServlet</servlet-class>
     </servlet>
 
-    <!--                   User First Page                  -->
+
     <servlet-mapping>
-        <servlet-name>FirstPageUserServlet</servlet-name>
-        <url-pattern>/FirstPageUserServlet</url-pattern>
+        <servlet-name>FileServlet</servlet-name>
+        <url-pattern>/FileServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>FirstPageUserServlet</servlet-name>
-        <servlet-class>servlets.user.FirstPageUserServlet</servlet-class>
+        <servlet-name>FileServlet</servlet-name>
+        <servlet-class>servlets.FileServlet</servlet-class>
     </servlet>
 
 
-    <!-- Create user -->
     <servlet-mapping>
-        <servlet-name>CreateUserServlet</servlet-name>
-        <url-pattern>/CreateUserServlet</url-pattern>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/UserServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>CreateUserServlet</servlet-name>
-        <servlet-class>servlets.user.CreateUserServlet</servlet-class>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>servlets.UserServlet</servlet-class>
     </servlet>
-
-
-    <!-- Update user -->
-    <servlet-mapping>
-        <servlet-name>UpdateUserServlet</servlet-name>
-        <url-pattern>/UpdateUserServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>UpdateUserServlet</servlet-name>
-        <servlet-class>servlets.user.UpdateUserServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Get user -->
-    <servlet-mapping>
-        <servlet-name>GetByIdUSerServlet</servlet-name>
-        <url-pattern>/GetByIdUSerServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>GetByIdUSerServlet</servlet-name>
-        <servlet-class>servlets.user.GetByIdUserServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Get all users -->
-    <servlet-mapping>
-        <servlet-name>GetAllUserServlet</servlet-name>
-        <url-pattern>/GetAllUserServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>GetAllUserServlet</servlet-name>
-        <servlet-class>servlets.user.GetAllUserServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Delete user -->
-    <servlet-mapping>
-        <servlet-name>DeleteByIdUserServlet</servlet-name>
-        <url-pattern>/DeleteByIdUserServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>DeleteByIdUserServlet</servlet-name>
-        <servlet-class>servlets.user.DeleteByIdUserServlet</servlet-class>
-    </servlet>
-
-
-
-
-    <!--                  Event First Page                      -->
-    <servlet-mapping>
-        <servlet-name>FirstPageEventServlet</servlet-name>
-        <url-pattern>/FirstPageEventServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>FirstPageEventServlet</servlet-name>
-        <servlet-class>servlets.event.FirstPageEventServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Create event -->
-    <servlet-mapping>
-        <servlet-name>CreateEventServlet</servlet-name>
-        <url-pattern>/CreateEventServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>CreateEventServlet</servlet-name>
-        <servlet-class>servlets.event.CreateEventServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Update event -->
-    <servlet-mapping>
-        <servlet-name>UpdateEventServlet</servlet-name>
-        <url-pattern>/UpdateEventServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>UpdateEventServlet</servlet-name>
-        <servlet-class>servlets.event.UpdateEventServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Get event -->
-    <servlet-mapping>
-        <servlet-name>GetByIdEventServlet</servlet-name>
-        <url-pattern>/GetByIdEventServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>GetByIdEventServlet</servlet-name>
-        <servlet-class>servlets.event.GetByIdEventServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Get all events -->
-    <servlet-mapping>
-        <servlet-name>GetAllEventServlet</servlet-name>
-        <url-pattern>/GetAllEventServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>GetAllEventServlet</servlet-name>
-        <servlet-class>servlets.event.GetAllEventServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Delete event -->
-    <servlet-mapping>
-        <servlet-name>DeleteByIdEventServlet</servlet-name>
-        <url-pattern>/DeleteByIdEventServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>DeleteByIdEventServlet</servlet-name>
-        <servlet-class>servlets.event.DeleteByIdEventServlet</servlet-class>
-    </servlet>
-
-
-
-    <!--                   File First Page                   -->
-    <servlet-mapping>
-        <servlet-name>FirstPageFileServlet</servlet-name>
-        <url-pattern>/FirstPageFileServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>FirstPageFileServlet</servlet-name>
-        <servlet-class>servlets.file.FirstPageFileServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Create file -->
-    <servlet-mapping>
-        <servlet-name>CreateFileEventServlet</servlet-name>
-        <url-pattern>/CreateFileEventServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>CreateFileEventServlet</servlet-name>
-        <servlet-class>servlets.file.CreateFileServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Update file -->
-    <servlet-mapping>
-        <servlet-name>UpdateFileServlet</servlet-name>
-        <url-pattern>/UpdateFileServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>UpdateFileServlet</servlet-name>
-        <servlet-class>servlets.file.UpdateFileServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Get file -->
-    <servlet-mapping>
-        <servlet-name>GetByIdFileServlet</servlet-name>
-        <url-pattern>/GetByIdFileServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>GetByIdFileServlet</servlet-name>
-        <servlet-class>servlets.file.GetByIdFileServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Get all files -->
-    <servlet-mapping>
-        <servlet-name>GetAllFileServlet</servlet-name>
-        <url-pattern>/GetAllFileServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>GetAllFileServlet</servlet-name>
-        <servlet-class>servlets.file.GetAllFileServlet</servlet-class>
-    </servlet>
-
-
-    <!-- Delete file -->
-    <servlet-mapping>
-        <servlet-name>DeleteByIdFileServlet</servlet-name>
-        <url-pattern>/DeleteByIdFileServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>DeleteByIdFileServlet</servlet-name>
-        <servlet-class>servlets.file.DeleteByIdFileServlet</servlet-class>
-    </servlet>
-
 
 </web-app>
