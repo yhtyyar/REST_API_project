@@ -1,3 +1,7 @@
+[![Build Status](https://app.travis-ci.com/yhtyyar/REST_API_project.svg?branch=master)](https://app.travis-ci.com/yhtyyar/REST_API_project)
+<a href="https://www.codefactor.io/repository/github/yhtyyar/rest_api_project"><img src="https://www.codefactor.io/repository/github/yhtyyar/rest_api_project/badge" alt="CodeFactor" /></a>
+
+
 # REST_API_project
 
 # Задание:
