@@ -11,8 +11,14 @@ public class EventService {
 
     private final EventRepository eventRepository;
 
+
     public EventService() {
        eventRepository = new EventRepositoryImpl();
+    }
+
+
+    public EventService(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
     }
 
 

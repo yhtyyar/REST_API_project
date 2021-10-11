@@ -15,6 +15,11 @@ public class FileService {
     }
 
 
+    public FileService(FileRepository fileRepository) {
+        this.fileRepository = fileRepository;
+    }
+
+
     public File create(Long eventId, String filePath, String fileName) {
         return fileRepository.create(eventId, filePath, fileName);
     }

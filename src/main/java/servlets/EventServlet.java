@@ -41,14 +41,14 @@ public class EventServlet extends HttpServlet {
                 resp.setContentType("text/HTML; charset=UTF-8");
 
                 for (Event event : eventList) {
-                    writer.println(gson.toJson(event.toString()));
+                    writer.write(gson.toJson(event.toString()));
                 }
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Произошла ошибка!"));
+                writer.write(gson.toJson("Произошла ошибка!"));
 
             }
 
@@ -57,13 +57,13 @@ public class EventServlet extends HttpServlet {
             try {
                 event = eventService.getById(id);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson(event.toString()));
+                writer.write(gson.toJson(event.toString()));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не найдено \"Event\" с таким ID"));
+                writer.write(gson.toJson("Не найдено \"Event\" с таким ID"));
             }
         }
     }
@@ -84,13 +84,13 @@ public class EventServlet extends HttpServlet {
             try {
                 event = eventService.create(eventName);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson(event.toString()));
+                writer.write(gson.toJson(event.toString()));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не удалось создать \"Event\" "));
+                writer.write(gson.toJson("Не удалось создать \"Event\" "));
 
             }
         }
@@ -115,13 +115,13 @@ public class EventServlet extends HttpServlet {
 
                 event = eventService.update(id, userId, eventName);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson(event.toString()));
+                writer.write(gson.toJson(event.toString()));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не удалось изменить данные"));
+                writer.write(gson.toJson("Не удалось изменить данные"));
 
             }
         }
@@ -145,13 +145,13 @@ public class EventServlet extends HttpServlet {
 
                 eventService.deleteById(id);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Данные удалены"));
+                writer.write(gson.toJson("Данные удалены"));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Произошла ошибка, данные не удалены"));
+                writer.write(gson.toJson("Произошла ошибка, данные не удалены"));
 
             }
         }

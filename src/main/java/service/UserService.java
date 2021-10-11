@@ -8,10 +8,17 @@ import java.util.List;
 
 public class UserService {
 
+
     private final UserRepository userRepository;
+
 
     public UserService() {
         userRepository = new UserRepositoryImpl();
+    }
+
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
 

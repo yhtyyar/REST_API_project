@@ -40,14 +40,14 @@ public class FileServlet extends HttpServlet {
                 resp.setContentType("text/HTML; charset=UTF-8");
 
                 for (File file : fileList) {
-                    writer.println(gson.toJson(file));
+                    writer.write(gson.toJson(file));
                 }
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Произошла ошибка!"));
+                writer.write(gson.toJson("Произошла ошибка!"));
 
             }
 
@@ -57,13 +57,13 @@ public class FileServlet extends HttpServlet {
 
                 file = fileService.getById(id);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson(file.toString()));
+                writer.write(gson.toJson(file.toString()));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не удалось найти \"File\" с таким ID"));
+                writer.write(gson.toJson("Не удалось найти \"File\" с таким ID"));
 
             }
         }
@@ -88,13 +88,13 @@ public class FileServlet extends HttpServlet {
 
                 file = fileService.create(eventId,filePath, fileName);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson(file.toString()));
+                writer.write(gson.toJson(file.toString()));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не удалось создать \"File\" "));
+                writer.write(gson.toJson("Не удалось создать \"File\" "));
 
             }
         }
@@ -120,13 +120,13 @@ public class FileServlet extends HttpServlet {
 
                 file = fileService.update(id, eventId, filePath, fileName);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson(file.toString()));
+                writer.write(gson.toJson(file.toString()));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не удалось изменить данные"));
+                writer.write(gson.toJson("Не удалось изменить данные"));
 
             }
         }
@@ -149,13 +149,13 @@ public class FileServlet extends HttpServlet {
 
                 fileService.deleteById(id);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Данные удалены"));
+                writer.write(gson.toJson("Данные удалены"));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не удалось удалить данные"));
+                writer.write(gson.toJson("Не удалось удалить данные"));
             }
         }
     }

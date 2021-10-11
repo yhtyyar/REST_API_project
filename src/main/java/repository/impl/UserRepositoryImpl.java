@@ -44,8 +44,6 @@ public class UserRepositoryImpl implements UserRepository {
             }
 
 
-
-
         } else {
             try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
                 transaction = session.beginTransaction();

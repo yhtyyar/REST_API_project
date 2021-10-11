@@ -41,14 +41,14 @@ public class UserServlet extends HttpServlet {
                 resp.setContentType("text/HTML; charset=UTF-8");
 
                 for (User user : userList) {
-                    writer.println(gson.toJson(user.toString()));
+                    writer.write(gson.toJson(user.toString()));
                 }
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Произошла ошибка!"));
+                writer.write(gson.toJson("Произошла ошибка!"));
             }
 
         } else {
@@ -57,13 +57,13 @@ public class UserServlet extends HttpServlet {
 
                 user = userService.getById(id);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson(user.toString()));
+                writer.write(gson.toJson(user.toString()));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не было найдена \"User\" с таким ID"));
+                writer.write(gson.toJson("Не было найдена \"User\" с таким ID"));
 
             }
         }
@@ -85,13 +85,13 @@ public class UserServlet extends HttpServlet {
 
                 user = userService.create(userName);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson(user.toString()));
+                writer.write(gson.toJson(user.toString()));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не удалось создать \"User\" "));
+                writer.write(gson.toJson("Не удалось создать \"User\" "));
 
             }
         }
@@ -114,13 +114,13 @@ public class UserServlet extends HttpServlet {
 
                 user = userService.update(id,userName);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson(user.toString()));
+                writer.write(gson.toJson(user.toString()));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не удалось изменить данные"));
+                writer.write(gson.toJson("Не удалось изменить данные"));
             }
         }
     }
@@ -141,13 +141,13 @@ public class UserServlet extends HttpServlet {
 
                 userService.deleteById(id);
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Данные удалены!"));
+                writer.write(gson.toJson("Данные удалены!"));
 
             } catch (HibernateException e) {
 
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
-                writer.println(gson.toJson("Не удалось удалить данные"));
+                writer.write(gson.toJson("Не удалось удалить данные"));
             }
         }
     }
