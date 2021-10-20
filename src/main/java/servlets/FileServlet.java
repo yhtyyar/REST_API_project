@@ -5,6 +5,7 @@ import model.File;
 import org.hibernate.HibernateException;
 import service.FileService;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,59 +13,50 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+@WebServlet("api/v1/files")
 public class FileServlet extends HttpServlet {
 
-    private FileService fileService;
-    private File file;
+    private final static String ENCODING_UTF_8 = "UTF-8";
 
-    @Override
-    public void init() {
-        fileService = new FileService();
-    }
+    private final FileService fileService = new FileService();
+    private final Gson gson = new Gson();
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        Gson gson = new Gson();
+        File file;
 
-        req.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding(ENCODING_UTF_8);
+
         final long id = Long.parseLong(req.getParameter("id"));
 
         if (id == 0) {
 
             try {
-
                 List<File> fileList = fileService.getAll();
                 resp.setContentType("text/HTML; charset=UTF-8");
 
-                for (File file : fileList) {
-                    writer.write(gson.toJson(file));
+                for (File files : fileList) {
+                    writer.write(gson.toJson(files.toString()));
                 }
-
             } catch (HibernateException e) {
-
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
                 writer.write(gson.toJson("Произошла ошибка!"));
-
             }
 
         } else {
 
             try {
-
                 file = fileService.getById(id);
                 resp.setContentType("text/HTML; charset=UTF-8");
                 writer.write(gson.toJson(file.toString()));
-
             } catch (HibernateException e) {
-
                 e.printStackTrace();
                 resp.setContentType("text/HTML; charset=UTF-8");
                 writer.write(gson.toJson("Не удалось найти \"File\" с таким ID"));
-
             }
         }
     }
@@ -74,30 +66,30 @@ public class FileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        Gson gson = new Gson();
+        File file;
 
-        req.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding(ENCODING_UTF_8);
 
         final long eventId = Long.parseLong(req.getParameter("event_id"));
         final String fileName = req.getParameter("file_name");
         final String filePath = req.getParameter("file_path");
 
-        if ((eventId != 0 & fileName != null) & filePath != null) {
-
-            try {
-
-                file = fileService.create(eventId,filePath, fileName);
-                resp.setContentType("text/HTML; charset=UTF-8");
-                writer.write(gson.toJson(file.toString()));
-
-            } catch (HibernateException e) {
-
-                e.printStackTrace();
-                resp.setContentType("text/HTML; charset=UTF-8");
-                writer.write(gson.toJson("Не удалось создать \"File\" "));
-
-            }
+        if (eventId == 0 || fileName == null || filePath == null) {
+            resp.setContentType("text/HTML; charset=UTF-8");
+            writer.write(gson.toJson("Не удалось создать \"File\" "));
+            return;
         }
+
+        try {
+            file = fileService.create(eventId, filePath, fileName);
+            resp.setContentType("text/HTML; charset=UTF-8");
+            writer.write(gson.toJson(file.toString()));
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            resp.setContentType("text/HTML; charset=UTF-8");
+            writer.write(gson.toJson("Не удалось создать \"File\" "));
+        }
+
     }
 
 
@@ -105,30 +97,29 @@ public class FileServlet extends HttpServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        Gson gson = new Gson();
+        File file;
 
-        req.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding(ENCODING_UTF_8);
 
         final long id = Long.parseLong(req.getParameter("id"));
         final long eventId = Long.parseLong(req.getParameter("event_id"));
         final String fileName = req.getParameter("file_name");
         final String filePath = req.getParameter("file_path");
 
-        if ((id != 0 & eventId != 0) & (fileName != null & filePath != null)) {
+        if (id == 0 || eventId == 0 || fileName == null || filePath == null) {
+            resp.setContentType("text/HTML; charset=UTF-8");
+            writer.write(gson.toJson("Не удалось изменить данные"));
+            return;
+        }
 
-            try {
-
-                file = fileService.update(id, eventId, filePath, fileName);
-                resp.setContentType("text/HTML; charset=UTF-8");
-                writer.write(gson.toJson(file.toString()));
-
-            } catch (HibernateException e) {
-
-                e.printStackTrace();
-                resp.setContentType("text/HTML; charset=UTF-8");
-                writer.write(gson.toJson("Не удалось изменить данные"));
-
-            }
+        try {
+            file = fileService.update(id, eventId, filePath, fileName);
+            resp.setContentType("text/HTML; charset=UTF-8");
+            writer.write(gson.toJson(file.toString()));
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            resp.setContentType("text/HTML; charset=UTF-8");
+            writer.write(gson.toJson("Не удалось изменить данные"));
         }
     }
 
@@ -137,26 +128,26 @@ public class FileServlet extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        Gson gson = new Gson();
 
-        req.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding(ENCODING_UTF_8);
 
         final long id = Long.parseLong(req.getParameter("id"));
 
-        if(id != 0) {
+        if (id == 0) {
+            resp.setContentType("text/HTML; charset=UTF-8");
+            writer.write(gson.toJson("Не удалось удалить данные"));
+            return;
+        }
 
-            try {
-
-                fileService.deleteById(id);
-                resp.setContentType("text/HTML; charset=UTF-8");
-                writer.write(gson.toJson("Данные удалены"));
-
-            } catch (HibernateException e) {
-
-                e.printStackTrace();
-                resp.setContentType("text/HTML; charset=UTF-8");
-                writer.write(gson.toJson("Не удалось удалить данные"));
-            }
+        try {
+            fileService.deleteById(id);
+            resp.setContentType("text/HTML; charset=UTF-8");
+            writer.write(gson.toJson("Данные удалены"));
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            resp.setContentType("text/HTML; charset=UTF-8");
+            writer.write(gson.toJson("Не удалось удалить данные"));
         }
     }
+
 }
