@@ -1,1 +1,1 @@
-web: java -jar target/REST_API_project.jar
+web: java -war target/REST_API_project.war
