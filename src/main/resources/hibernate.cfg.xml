@@ -7,8 +7,9 @@
     <session-factory>
         <property name="hibernate.dialect"> org.hibernate.dialect.MySQLDialect </property>
         <property name="hibernate.connection.driver_class"> com.mysql.cj.jdbc.Driver </property>
-        <property name="hibernate.connection.url"> jdbc:mysql://localhost:3306/MySQL?serverTimezone=UTC </property>
-        <property name="hibernate.connection.username"> root </property>
-        <property name="hibernate.connection.password"> root </property>
+        <property name="hibernate.connection.url"> jdbc:mysql://tgryfzbto09l9s4q:vk2mwq4fwzz05gwx@esilxl0nthgloe1y.
+            chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/bzcqxahiyrnrdpec </property>
+        <property name="hibernate.connection.username"> tgryfzbto09l9s4q </property>
+        <property name="hibernate.connection.password"> vk2mwq4fwzz05gwx </property>
     </session-factory>
 </hibernate-configuration>
