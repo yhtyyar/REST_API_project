@@ -46,11 +46,4 @@ public class EventServiceTest {
         assertEquals(eventTest, event);
     }
 
-
-    @Test
-    public void getAll() {
-//        List<Event> eventList = eventUnderTest.getAll();
-//        assertEquals(eventListTest,eventList);
-    }
-
 }

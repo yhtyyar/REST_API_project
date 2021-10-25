@@ -26,7 +26,6 @@ public class FileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        File file;
 
         req.setCharacterEncoding(ENCODING_UTF_8);
 
@@ -50,7 +49,7 @@ public class FileServlet extends HttpServlet {
         } else {
 
             try {
-                file = fileService.getById(id);
+                File file = fileService.getById(id);
                 resp.setContentType("text/HTML; charset=UTF-8");
                 writer.write(gson.toJson(file.toString()));
             } catch (HibernateException e) {
@@ -66,7 +65,6 @@ public class FileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        File file;
 
         req.setCharacterEncoding(ENCODING_UTF_8);
 
@@ -81,7 +79,7 @@ public class FileServlet extends HttpServlet {
         }
 
         try {
-            file = fileService.create(eventId, filePath, fileName);
+            File file = fileService.create(eventId, filePath, fileName);
             resp.setContentType("text/HTML; charset=UTF-8");
             writer.write(gson.toJson(file.toString()));
         } catch (HibernateException e) {
@@ -97,7 +95,6 @@ public class FileServlet extends HttpServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        File file;
 
         req.setCharacterEncoding(ENCODING_UTF_8);
 
@@ -113,7 +110,7 @@ public class FileServlet extends HttpServlet {
         }
 
         try {
-            file = fileService.update(id, eventId, filePath, fileName);
+            File file = fileService.update(id, eventId, filePath, fileName);
             resp.setContentType("text/HTML; charset=UTF-8");
             writer.write(gson.toJson(file.toString()));
         } catch (HibernateException e) {

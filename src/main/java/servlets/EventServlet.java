@@ -26,8 +26,8 @@ public class EventServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
+
         req.setCharacterEncoding(ENCODING_UTF_8);
-        Event event;
 
         final long id = Long.parseLong(req.getParameter("id"));
 
@@ -49,7 +49,7 @@ public class EventServlet extends HttpServlet {
         } else {
 
             try {
-                event = eventService.getById(id);
+                Event event = eventService.getById(id);
                 resp.setContentType("text/HTML; charset=UTF-8");
                 writer.write(gson.toJson(event.toString()));
             } catch (HibernateException e) {
@@ -65,7 +65,6 @@ public class EventServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        Event event;
 
         req.setCharacterEncoding(ENCODING_UTF_8);
 
@@ -78,7 +77,7 @@ public class EventServlet extends HttpServlet {
         }
 
         try {
-            event = eventService.create(eventName);
+            Event event = eventService.create(eventName);
             resp.setContentType("text/HTML; charset=UTF-8");
             writer.write(gson.toJson(event.toString()));
         } catch (HibernateException e) {
@@ -94,7 +93,6 @@ public class EventServlet extends HttpServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        Event event;
 
         req.setCharacterEncoding(ENCODING_UTF_8);
 
@@ -109,7 +107,7 @@ public class EventServlet extends HttpServlet {
         }
 
         try {
-            event = eventService.update(id, userId, eventName);
+            Event event = eventService.update(id, userId, eventName);
             resp.setContentType("text/HTML; charset=UTF-8");
             writer.write(gson.toJson(event.toString()));
         } catch (HibernateException e) {

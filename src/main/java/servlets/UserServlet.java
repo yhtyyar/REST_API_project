@@ -26,9 +26,9 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        User user;
 
         req.setCharacterEncoding(ENCODING_UTF_8);
+
         final long id = Long.parseLong(req.getParameter("id"));
 
         if (id == 0) {
@@ -50,7 +50,7 @@ public class UserServlet extends HttpServlet {
         } else {
 
             try {
-                user = userService.getById(id);
+                User user = userService.getById(id);
                 resp.setContentType("text/HTML; charset=UTF-8");
                 writer.write(gson.toJson(user.toString()));
             } catch (HibernateException e) {
@@ -66,9 +66,9 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        User user;
 
         req.setCharacterEncoding(ENCODING_UTF_8);
+
         final String userName = req.getParameter("user_name");
 
         if (userName == null) {
@@ -78,7 +78,7 @@ public class UserServlet extends HttpServlet {
         }
 
         try {
-            user = userService.create(userName);
+            User user = userService.create(userName);
             resp.setContentType("text/HTML; charset=UTF-8");
             writer.write(gson.toJson(user.toString()));
         } catch (HibernateException e) {
@@ -94,9 +94,9 @@ public class UserServlet extends HttpServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         PrintWriter writer = resp.getWriter();
-        User user;
 
         req.setCharacterEncoding(ENCODING_UTF_8);
+
         final long id = Long.parseLong(req.getParameter("id"));
         final String userName = req.getParameter("user_name");
 
@@ -107,7 +107,7 @@ public class UserServlet extends HttpServlet {
         }
 
         try {
-            user = userService.update(id, userName);
+            User user = userService.update(id, userName);
             resp.setContentType("text/HTML; charset=UTF-8");
             writer.write(gson.toJson(user.toString()));
         } catch (HibernateException e) {
@@ -125,6 +125,7 @@ public class UserServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
 
         req.setCharacterEncoding(ENCODING_UTF_8);
+
         final long id = Long.parseLong(req.getParameter("id"));
 
         if (id == 0) {

@@ -46,11 +46,4 @@ public class FileServiceTest {
         assertEquals(fileTest,file);
     }
 
-
-    @Test
-    public void getAll() {
-//        List<File> fileList = fileUnderTest.getAll();
-//        assertEquals(fileListTest,fileList);
-
-    }
 }

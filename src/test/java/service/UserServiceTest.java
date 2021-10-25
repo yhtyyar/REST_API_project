@@ -47,10 +47,4 @@ public class UserServiceTest {
         assertEquals(userTest,user);
     }
 
-
-    @Test
-    public void getAll() {
-//        List<User> userList = userUnderTest.getAll();
-//        assertEquals(userListTest,userList);
-    }
 }
