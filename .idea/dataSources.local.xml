@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-212.5284.40">
+    <data-source name="bzcqxahiyrnrdpec@esilxl0nthgloe1y.chr7pe7iynqr.eu-west-1.rds.amazonaws.com" uuid="049d8ad0-b810-4c75-920b-075b19362262">
+      <database-info product="MySQL" version="8.0.23" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.23" exact-driver-version="8.0">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>tgryfzbto09l9s4q</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="schema_1" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="d3pj2e4rls5ttd@ec2-79-125-30-28.eu-west-1.compute.amazonaws.com" uuid="76cd5221-d754-42ad-817e-ba68eda3725e">
+      <database-info product="PostgreSQL" version="13.4 (Ubuntu 13.4-4.pgdg20.04+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.22" dbms="POSTGRES" exact-version="13.4">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>rtodkxypwjshdl</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="s1isbk05z82lsuaw@n2o93bb1bwmn0zle.chr7pe7iynqr.eu-west-1.rds.amazonaws.com" uuid="ea9dfedd-1b6f-4500-845b-033c211f8b79">
+      <database-info product="MySQL" version="8.0.15" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.15">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>yg2lnwp0a13dm63r</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
