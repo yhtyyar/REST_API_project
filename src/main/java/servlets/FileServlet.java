@@ -5,7 +5,6 @@ import model.File;
 import org.hibernate.HibernateException;
 import service.FileService;
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "FileServlet", urlPatterns = "api/v1/files")
 public class FileServlet extends HttpServlet {
 
     private final static String ENCODING_UTF_8 = "UTF-8";

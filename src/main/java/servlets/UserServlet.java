@@ -5,7 +5,6 @@ import model.User;
 import org.hibernate.HibernateException;
 import service.UserService;
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "UserServlet", urlPatterns = "api/v1/users")
 public class UserServlet extends HttpServlet {
 
     private final static String ENCODING_UTF_8 = "UTF-8";
